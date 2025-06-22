@@ -1,0 +1,13 @@
+on:
+  workflow_dispatch:
+  push:
+
+jobs:
+  terraform-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-crenditals@v1
+        with:
+          role-to-assume: arn:aws:iam::164066239499:role/github-actions-terraform
+          aws-region: us-west-2
